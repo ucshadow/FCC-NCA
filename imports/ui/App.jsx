@@ -7,6 +7,15 @@ import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 export default class App extends React.Component {
 
+  constructor() {
+    super();
+    Meteor.call("changeName", function(err, res) {
+      if(res) {
+        document.getElementById("login-name-link").innerHTML = res;
+      }
+    })
+  }
+
   render() {
     return (
       <div>
@@ -15,11 +24,11 @@ export default class App extends React.Component {
           background: "none", border: "none"}}>
             <div id="navbarCollapse" className="collapse navbar-collapse">
               <ul className="nav navbar-nav">
-                <li className="nav-button"><Link to="/" > Home </Link></li>
                 <li className="nav-button"><Link to="/about"> About </Link></li>
+                <li className="nav-account" id="login"><AccountsUIWrapper /></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
-                  <li className="nav-account"><AccountsUIWrapper /></li>
+
               </ul>
             </div>
           </nav>

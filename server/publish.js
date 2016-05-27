@@ -1,7 +1,6 @@
-/*import { VoteData } from '../imports/api/voteData.js'
+import { GoingOut } from '../imports/api/userStatus'
 
 
-Meteor.publish('voteData', function votePublish() {
-  return VoteData.find();
+Meteor.publish('goingOut', function dbPublish() {
+  return GoingOut.find();
 });
-  */
